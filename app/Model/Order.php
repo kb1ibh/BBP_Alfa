@@ -41,4 +41,26 @@ class Order extends AppModel {
 		)
 	);
 	
+	/* Add new PO */
+	public function add($po) {
+		$this->create();
+		$this->set(
+			array(
+				'po_number' => $po,
+				'invoice_number' => $this->maxInvoice() + 1
+			)
+		);
+		return $this->save();
+	}
+
+	/* Get max invoice number */
+	public function maxInvoice() {
+		$result = $this->find('first', 
+			array(
+				'fields' => array('MAX(invoice_number) as max_inv')
+			)
+		);
+		return $result[0]['max_inv'];
+	}
+	
 }
