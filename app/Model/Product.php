@@ -16,5 +16,11 @@ App::uses('AppModel', 'Model');
 class Product extends AppModel {
 
 	public $name = 'Product';
+	
+	public $hasmany = array(
+		'Detail' => array(
+			'className' => 'Detail'
+		)
+	);
 
 }
