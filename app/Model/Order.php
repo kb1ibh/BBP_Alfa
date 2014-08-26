@@ -35,4 +35,10 @@ class Order extends AppModel {
 		)
 	);
 	
+	public $hasMany = array(
+		'Detail' => array(
+			'className' => 'Detail'
+		)
+	);
+	
 }
