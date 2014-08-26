@@ -17,4 +17,22 @@ class Order extends AppModel {
 
 	public $name = 'Order';
 	
+	/* validation rules */
+	public $validate = array(
+		'po_number' => array(
+			'numericRule' => array(
+				'rule'    	=> 'numeric',
+				'required'	=> true,
+				'message' 	=> 'PO Numbers must contain only numbers.'
+			)
+		),
+		'invoice_number' => array(
+			'numericRule' => array(
+				'rule'    	=> 'numeric',
+				'required'	=> true,
+				'message' 	=> 'Invoice Number must contain only numbers.'
+			)
+		)
+	);
+	
 }
