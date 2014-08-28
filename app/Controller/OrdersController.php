@@ -13,5 +13,20 @@
  */
 
 class OrdersController extends AppController {
-	
+
+	public $components = array('Paginator');
+
+	public function index() {
+		$this->paginate = array(
+			'contain' => array( 
+				'Detail' => array(
+					'Product'
+				)
+			),
+			'order' => 'Order.created DESC',
+			'limit' => 15
+		);
+		$orders = $this->Paginator->paginate('Order');
+		$this->set(compact('orders'));
+	}
 }
