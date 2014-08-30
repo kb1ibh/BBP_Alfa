@@ -13,7 +13,8 @@
 	</thead>
 	<?php foreach($order['Detail'] as $detail) { ?>
 	<tr>
-		<td>
+		<!-- fixed width maintains button group -->
+		<td width="65px">
 			<div class="btn-group">
 				<button type="button" class="btn btn-xs btn-warning"><span class="glyphicon glyphicon-edit"></span></button>
 				<button type="button" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
