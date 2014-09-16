@@ -41,16 +41,26 @@ class Order extends AppModel {
 		)
 	);
 	
-	/* Add new PO */
-	public function add($po) {
+	/* Add new PO 
+	 * RETURNS id of row if inserted, else false.
+	 */
+	public function add($argArray) {
 		$this->create();
-		$this->set(
-			array(
-				'po_number' => $po,
+		
+		// populate invoice field with next invoice value
+		$defaultArgs = array(
+			'Order' => array(
 				'invoice_number' => $this->maxInvoice() + 1
 			)
 		);
-		return $this->save();
+		
+		// combine default and passed arrays, MUST be recursive merge to 
+		// maintain nested values
+		$this->set(array_merge_recursive($defaultArgs, $argArray));
+		
+		if($this->save()){
+			return $this->getInsertID();
+		} else return false;
 	}
 
 	/* Get max invoice number */
