@@ -21,6 +21,7 @@
 	</head>
 	<body>
 		<?php echo $this->element('navbar', array('section' => $this->params['controller'])); ?>
+		<?php echo $this->Session->flash(); ?>
 		<?php echo $this->fetch('content'); ?>
 		<!-- Bootstrap core JavaScript
 			================================================== -->
