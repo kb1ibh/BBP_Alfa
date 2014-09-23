@@ -24,6 +24,10 @@ class Order extends AppModel {
 				'rule'    	=> 'numeric',
 				'required'	=> true,
 				'message' 	=> 'PO Numbers must contain only numbers.'
+			),
+			'unique' => array(
+				'rule' => 'isUnique',
+				'required' => 'create'
 			)
 		),
 		'invoice_number' => array(
@@ -31,6 +35,10 @@ class Order extends AppModel {
 				'rule'    	=> 'numeric',
 				'required'	=> true,
 				'message' 	=> 'Invoice Number must contain only numbers.'
+			),
+			'unique' => array(
+				'rule' => 'isUnique',
+				'required' => 'create'
 			)
 		)
 	);
