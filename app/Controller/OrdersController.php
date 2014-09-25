@@ -47,4 +47,26 @@ class OrdersController extends AppController {
 		$this->set(compact('order'));
 	}
 	
+	public function add() {
+		if( $this->request->is('post') ) {
+			//add new order number
+			if( $insertID = $this->Order->add($this->request->data) ) {
+				$this->Session->setFlash('The Order was Created Successfully', 'Flash/validation/alert', array('type' => 'success'));
+				
+				//Process redirect
+				if($this->request->data['redirect'] == 'orders') {
+					$this->redirect('/orders');
+				} elseif($this->request->data['redirect'] == 'details') {
+					$this->redirect('/orders/details/'.$insertID);
+				}				
+			} else {
+				//display validation errors
+				$this->Session->setFlash(null, 'Flash/validation/alert', array(
+					'validation' => true, 
+					'type' => 'danger',
+				));
+			}
+		}
+	}
+	
 }
