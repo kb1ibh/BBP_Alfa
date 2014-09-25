@@ -68,5 +68,15 @@ class OrdersController extends AppController {
 			}
 		}
 	}
+
+	public function ajax_order_number() {
+		$this->autoRender = false;
+		$resultCount = $this->Order->find('count', array(
+			'conditions' => array(
+				'po_number' => $this->request->data('orderNumber')
+			)
+		));
+		echo json_encode(array('duplicate' => (bool)$resultCount));
+	}
 	
 }
