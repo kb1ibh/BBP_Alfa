@@ -51,7 +51,7 @@ class OrdersController extends AppController {
 		if( $this->request->is('post') ) {
 			//add new order number
 			if( $insertID = $this->Order->add($this->request->data) ) {
-				$this->Session->setFlash('The Order was Created Successfully', 'Flash/validation/alert', array('type' => 'success'));
+				$this->Session->setFlash('The Order was Created Successfully', 'Flash/Validation/alert', array('type' => 'success'));
 				
 				//Process redirect
 				if($this->request->data['redirect'] == 'orders') {
