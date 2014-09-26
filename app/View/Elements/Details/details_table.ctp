@@ -1,3 +1,4 @@
+<?php $total = 0; ?>
 <table class="table table-striped">
 	<thead>
         <tr>
@@ -27,6 +28,18 @@
 		<td><?php echo $detail['quantity']; ?></td>
 		<td><?php echo '$'.money_format('%i', $detail['Product']['price']); ?></td>
 		<td><?php echo '$'.money_format('%i', $detail['Product']['price']*$detail['quantity']); ?></td>
+		
+		<?php
+		//add to running total
+		$total += $detail['Product']['price']*$detail['quantity'];
+		?>
+	</tr>
+	<?php } ?> 
+	<?php if($total) { ?>
+	<tr class="success">
+		<td colspan="6">&nbsp;</td>
+		<td><strong>Total:</strong></td>
+		<td><?php echo '$'.money_format('%i', $total);?></td>
 	</tr>
 	<?php } ?>
 </table>
