@@ -27,7 +27,7 @@
 var delayTimer;
 function updateFeedback(text) { 
 	clearTimeout(delayTimer);
-	//after keydown timeout, 
+	//after keydown timeout, run ajax function
 	delayTimer = setTimeout(function() {
 		var loadUrl = '<?=$this->Html->url('/orders/ajax_order_number')?>';
 		$.post(
@@ -43,7 +43,7 @@ function updateFeedback(text) {
 			},
 			"html"
 		);
-	}, 150); // how long to delay ajax in ms
+	}, 300); // how long to delay ajax in ms
 }
 
 //clear form of success/error feedback
