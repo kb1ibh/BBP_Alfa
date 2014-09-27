@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-md-3">	
 			
-			<table class="table-bordered table">
+			<table class="table-bordered table-condensed table">
 				<tr>
 					<td class="info"><strong>PO #</strong></td>
 				</tr>
