@@ -12,6 +12,7 @@
 		<?=$this->Html->css('bootstrap.min.css'); ?>
 		<!-- Custom styles for this template -->
 		<?=$this->Html->css('offcanvas.css'); ?>
+		<?=$this->Html->css('custom.css'); ?>
 		
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
