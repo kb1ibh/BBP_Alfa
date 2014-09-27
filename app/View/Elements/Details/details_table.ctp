@@ -2,32 +2,32 @@
 <table class="table table-striped">
 	<thead>
         <tr>
-			<th>&nbsp;</th>
-			<th>BBP Catalog #</th>
-			<th>Alfa Catalog #</th>
+			<th class="nowrap">&nbsp;</th>
+			<th class="nowrap">BBP Cat #</th>
+			<th class="nowrap">Alfa Cat #</th>
 			<th>Product Description</th>
-			<th>Lot</th>
-			<th>Qty</th>
-			<th>Price</th>
-			<th>Line Total</th>
+			<th class="nowrap">Lot</th>
+			<th class="nowrap">Qty</th>
+			<th class="nowrap">Price</th>
+			<th class="nowrap">Line Total</th>
         </tr>
 	</thead>
 	<?php foreach($order['Detail'] as $detail) { ?>
 	<tr>
 		<!-- fixed width maintains button group -->
-		<td width="65px">
+		<td class="nowrap" width="65px">
 			<div class="btn-group">
 				<button type="button" class="btn btn-xs btn-warning"><span class="glyphicon glyphicon-edit"></span></button>
 				<button type="button" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
 			</div>
 		</td>
-		<td><?php echo $detail['Product']['bbp_cat']; ?></td>
-		<td><?php echo $detail['Product']['aa_cat']; ?></td>
+		<td class="nowrap"><?php echo $detail['Product']['bbp_cat']; ?></td>
+		<td class="nowrap"><?php echo $detail['Product']['aa_cat']; ?></td>
 		<td><?php echo $detail['Product']['description']; ?></td>
-		<td><?php echo $detail['lot']; ?></td>
-		<td><?php echo $detail['quantity']; ?></td>
-		<td><?php echo '$'.money_format('%i', $detail['Product']['price']); ?></td>
-		<td><?php echo '$'.money_format('%i', $detail['Product']['price']*$detail['quantity']); ?></td>
+		<td class="nowrap"><?php echo $detail['lot']; ?></td>
+		<td class="nowrap"><?php echo $detail['quantity']; ?></td>
+		<td class="nowrap"><?php echo '$'.money_format('%i', $detail['Product']['price']); ?></td>
+		<td class="nowrap"><?php echo '$'.money_format('%i', $detail['Product']['price']*$detail['quantity']); ?></td>
 		
 		<?php
 		//add to running total

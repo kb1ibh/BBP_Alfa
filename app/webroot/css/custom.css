@@ -2,3 +2,6 @@ h4.condensed {
 	margin-top: 5px;
 	margin-bottom: 10px;
 }
+td.nowrap {
+    white-space: nowrap;
+}
