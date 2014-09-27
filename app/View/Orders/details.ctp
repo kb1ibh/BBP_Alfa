@@ -29,12 +29,12 @@
 			</table>
 			
 			<div class="well">
-				<div class="btn-group btn-group-sm btn-group-justified btn-block">
+				<div class="btn-group btn-group-xs btn-group-justified btn-block">
 					<a type="button" class="btn btn-primary">DOCX</a>
 					<a type="button" class="btn btn-default">Invoice</a>
 					<a type="button" class="btn btn-warning">PDF</a>
 				</div>
-				<div class="btn-group btn-group-sm btn-group-justified btn-block">
+				<div class="btn-group btn-group-xs btn-group-justified btn-block">
 					<a type="button" class="btn btn-primary">DOCX</a>
 					<a type="button" class="btn btn-default">Packing</a>
 					<a type="button" class="btn btn-warning">PDF</a>
