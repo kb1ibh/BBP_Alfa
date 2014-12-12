@@ -49,6 +49,11 @@ class Order extends AppModel {
 		)
 	);
 	
+	public $belongsTo = array(
+        'Billing',
+		'Shipping'
+    );
+	
 	/* Add new PO 
 	 * RETURNS id of row if inserted, else false.
 	 */
