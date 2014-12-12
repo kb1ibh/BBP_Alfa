@@ -9,7 +9,7 @@
  * @copyright  	2014 Boston BioProducts Inc.
  * @license    	MIT License
  * @created		2014-08-28
- * @modified	2014-08-28
+ * @modified	2014-09-29
  */
 
 class OrdersController extends AppController {
@@ -32,7 +32,7 @@ class OrdersController extends AppController {
 	}
 	
 	/* Details for specific order*/
-	public function details($id) {
+	public function details($id) {	
 		$order = $this->Order->find('first', array(
 			'conditions' => array(
 				'id' => $id
@@ -40,11 +40,11 @@ class OrdersController extends AppController {
 			'contain' => array(
 				'Detail' => array(
 					'Product'
-				)
+	 			)
 			)
 		));
 		
-		$this->set(compact('order'));
+		$this->set(compact('order', 'id'));
 	}
 	
 	public function add() {
@@ -76,7 +76,6 @@ class OrdersController extends AppController {
 				'po_number' => $this->request->data('orderNumber')
 			)
 		));
-		echo json_encode(array('duplicate' => (bool)$resultCount));
+		$this->set(compact('resultCount'));
 	}
-	
 }
