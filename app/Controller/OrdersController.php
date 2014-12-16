@@ -48,6 +48,16 @@ class OrdersController extends AppController {
 	}
 	
 	public function add() {
+		//get shipping/billing addresses
+		$this->loadModel('Shipping');
+		$this->loadModel('Billing');
+		
+		$shipping = $this->Shipping->find('all');
+		$billing = $this->Billing->find('all');
+		
+		$this->set(compact('shipping', 'billing'));
+		
+		//Handle Posts
 		if( $this->request->is('post') ) {
 			//add new order number
 			if( $insertID = $this->Order->add($this->request->data) ) {
@@ -78,4 +88,41 @@ class OrdersController extends AppController {
 		));
 		$this->set(compact('resultCount'));
 	}
+	
+	public function invoice($id) {
+		Configure::write('debug', 0);
+		$this->layout = 'docx';
+		$order = $this->Order->find('first', array(
+			'contain' => array(
+				'Billing',
+				'Shipping',
+				'Detail' => array(
+					'Product'
+				)
+			), 
+			'conditions' => array(
+				'Order.id' => $id
+			)
+		));
+		$this->set(compact('order'));
+	}
+	
+	public function packing($id) {
+		Configure::write('debug', 0);
+		$this->layout = 'docx';
+		$order = $this->Order->find('first', array(
+			'contain' => array(
+				'Billing',
+				'Shipping',
+				'Detail' => array(
+					'Product'
+				)
+			), 
+			'conditions' => array(
+				'Order.id' => $id
+			)
+		));
+		$this->set(compact('order'));
+	}
+	
 }
