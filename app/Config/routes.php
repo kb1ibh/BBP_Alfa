@@ -29,6 +29,9 @@
  * ...and connect the rest of 'Pages' controller's URLs.
  */
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
+	
+	Router::connect('/fancybox/close', array('controller' => 'fancyboxes', 'action' => 'close'));
+	Router::connect('/fancybox/redirect/**', array('controller' => 'fancyboxes', 'action' => 'parent_redirect'));
 
 /**
  * Load all plugin routes. See the CakePlugin documentation on

@@ -48,6 +48,10 @@ class OrdersController extends AppController {
 	}
 	
 	public function add() {
+		#Debug mode will break this function
+		Configure::write('debug', 0);
+		
+		$this->layout = "dashboard-empty";
 		//get shipping/billing addresses
 		$this->loadModel('Shipping');
 		$this->loadModel('Billing');
@@ -61,14 +65,14 @@ class OrdersController extends AppController {
 		if( $this->request->is('post') ) {
 			//add new order number
 			if( $insertID = $this->Order->add($this->request->data) ) {
-				$this->Session->setFlash('The Order was Created Successfully', 'Flash/Validation/alert', array('type' => 'success'));
 				
 				//Process redirect
 				if($this->request->data['redirect'] == 'orders') {
-					$this->redirect('/orders');
+					$this->redirect('/fancybox/redirect/orders');
 				} elseif($this->request->data['redirect'] == 'details') {
-					$this->redirect('/orders/details/'.$insertID);
-				}				
+					$this->redirect('/fancybox/redirect/orders/details/'.$insertID);
+				}
+				
 			} else {
 				//display validation errors
 				$this->Session->setFlash(null, 'Flash/validation/alert', array(
@@ -90,6 +94,7 @@ class OrdersController extends AppController {
 	}
 	
 	public function invoice($id) {
+		#Debug mode will break this function
 		Configure::write('debug', 0);
 		$this->layout = 'docx';
 		$order = $this->Order->find('first', array(
@@ -108,6 +113,7 @@ class OrdersController extends AppController {
 	}
 	
 	public function packing($id) {
+		#Debug mode will break this function
 		Configure::write('debug', 0);
 		$this->layout = 'docx';
 		$order = $this->Order->find('first', array(
