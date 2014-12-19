@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-md-3">	
 			<div class="well">
-				<button type="button" class="btn btn-primary btn-block">New Order</button>
+				<a data-fancybox-type="iframe" href="<?=$this->Html->url('/orders/add')?>" class="btn btn-primary btn-block fancybox">New Order</a>
 			</div>
 			<div class="well">
 				<input class="form-control" placeholder="Search">
