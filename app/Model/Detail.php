@@ -51,13 +51,7 @@ class Detail extends AppModel {
                 'message'  => 'Numbers only'
             )
 		),
-		'lot' => array(
-			'alphaNumeric' => array(
-                'rule'     => 'alphaNumeric',
-                'required' => 'create',
-                'message'  => 'Letters and numbers only'
-            )
-		)
+		'lot' => array(	)
 	);
 	
 	//beforeSave Model Hook
