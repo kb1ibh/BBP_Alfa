@@ -5,3 +5,7 @@ h4.condensed {
 td.nowrap {
     white-space: nowrap;
 }
+
+
+ul li.ui-menu-item { border-top: 1px #ccc solid; padding: 2em 0; }
+ul li.ui-menu-item:first-child { border-top: none; padding-top: 0; }
