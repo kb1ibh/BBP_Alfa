@@ -24,7 +24,7 @@ class DetailsController extends AppController {
 			if($this->Detail->save($this->request->data)) {
 				$this->redirect($this->referer());
 			} else {
-				$this->Session->setFlash("", "flashMessage/error");
+				$this->Session->setFlash("Could not save Order Item", "flashMessage/error");
 			}
 		}		
 		$this->redirect($this->referer());
