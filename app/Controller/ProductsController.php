@@ -14,7 +14,7 @@
 
 class ProductsController extends AppController {
 
-	public function ajax_search($searchString) {
+	public function autocomplete_search($searchString) {
 		$this->layout = 'ajax';
 		$products = $this->Product->find('all', array(
 			'conditions' => array(

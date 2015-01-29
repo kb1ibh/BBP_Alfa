@@ -77,7 +77,7 @@
 				$( "#catalogNumber" ).autocomplete({
 					source: function( request, response ) {
 						$.ajax({
-							url: "<?=$this->Html->url('/products/ajax_search')?>",
+							url: "<?=$this->Html->url('/products/autocomplete_search')?>",
 							dataType: "json",
 							type: "POST",
 							data: {
