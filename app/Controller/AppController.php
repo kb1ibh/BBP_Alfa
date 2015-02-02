@@ -32,7 +32,7 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 
-	public $components = array('DebugKit.Toolbar', 'Session');
+	public $components = array('DebugKit.Toolbar', 'Session', 'Paginator');
 	public $helpers = array('Form');
 	public $layout = "dashboard";
 }
