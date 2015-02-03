@@ -34,6 +34,24 @@ class ProductsController extends AppController {
 		$this->set(compact('products'));
 	}
 	
-	
+	/*
+	 * ajax_search()
+	 * returns html table containing search results
+	 * used in products/index
+	 */
+	public function ajax_search() {
+		$this->layout = 'ajax';
+		$products = $this->Product->find('all', array(
+				'conditions' => array(
+						'OR' => array(
+								'description LIKE' => '%' . $this->request->data('q') . '%',
+								'bbp_cat LIKE' => '%' . $this->request->data('q') . '%',
+								'aa_cat LIKE' => '%' . $this->request->data('q') . '%'
+						)
+				),
+				'limit' => 30
+		));
+		$this->set(compact('products'));
+	}
 
 }
