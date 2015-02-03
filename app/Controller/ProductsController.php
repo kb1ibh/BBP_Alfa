@@ -53,5 +53,13 @@ class ProductsController extends AppController {
 		));
 		$this->set(compact('products'));
 	}
+	/*
+	 * Index()
+	 * paginated list of products 
+	 */
+	public function index() {
+		$products = $this->Paginator->paginate('Product');
+		$this->set(compact('products'));
+	}
 
 }
