@@ -13,20 +13,27 @@
  */
 
 class ProductsController extends AppController {
-
-	public function autocomplete_search($searchString) {
+	
+	/*
+	 * autocomplete_search()
+	*  used in autocomplete input in orders/details
+	*  feeds properly formatted JSON with
+	*/
+	public function autocomplete_search() {
 		$this->layout = 'ajax';
-		$products = $this->Product->find('all', array(
+		$products = $this->Product->find('autocomplete', array(
 			'conditions' => array(
 				'OR' => array(
-					'description LIKE' => '%' . $searchString . '%',
-					'bbp_cat LIKE' => '%' . $searchString . '%',
-					'aa_cat LIKE' => '%' . $searchString . '%'
+					'description LIKE' => '%' . $this->request->data('q') . '%',
+					'bbp_cat LIKE' => '%' . $this->request->data('q') . '%',
+					'aa_cat LIKE' => '%' . $this->request->data('q') . '%'
 				)
 			),
-			'limit' => 10
+			'limit' => 5
 		));
 		$this->set(compact('products'));
 	}
+	
+	
 
 }
