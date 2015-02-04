@@ -11,12 +11,16 @@
     	<tr>
   			<td> <?=$product['Product']['bbp_cat']?> </td>
   			<td> <?=$product['Product']['aa_cat']?> </td>
-  			<td> <?=$product['Product']['description']?> </td>
+  			<td> 
+  				<a href="<?=$this->Html->url('/products/view/'.$product['Product']['id'])?>">
+  					<?=$product['Product']['description']?>
+  				</a> 
+  			</td>
   			<td> <?=$product['Product']['vol']?> </td>
   			<td> $<?=money_format('%i', $product['Product']['price'])?> </td>
   			<td> 
-  				<a href="#" class="btn btn-xs btn-warning">Edit</a>
-  				<a href="#" class="btn btn-xs btn-danger">Delete</a> 
+  				<a href="<?=$this->Html->url('/products/edit/'.$product['Product']['id'])?>" class="btn btn-xs btn-warning">Edit</a>
+  				<a href="<?=$this->Html->url('/products/delete/'.$product['Product']['id'])?>" class="btn btn-xs btn-danger">Delete</a> 
   			</td>
 		</tr>
     <? } ?>
