@@ -17,8 +17,8 @@
 		<!-- fixed width maintains button group -->
 		<td class="nowrap" width="65px">
 			<div class="btn-group">
-				<button type="button" class="btn btn-xs btn-warning"><span class="glyphicon glyphicon-edit"></span></button>
-				<button type="button" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
+				<a data-fancybox-type="iframe" href="<?=$this->Html->url('/details/edit/'.$detail['id'])?>" class="fancybox btn btn-xs btn-warning"><span class="glyphicon glyphicon-edit"></span></a>
+				<a href="<?=$this->Html->url('/details/delete/'.$detail['id'])?>" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove"></span></a>
 			</div>
 		</td>
 		<td class="nowrap"><?php echo $detail['Product']['bbp_cat']; ?></td>
