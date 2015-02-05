@@ -20,7 +20,7 @@
   			<td> $<?=money_format('%i', $product['Product']['price'])?> </td>
   			<td> 
   				<a href="<?=$this->Html->url('/products/edit/'.$product['Product']['id'])?>" class="btn btn-xs btn-warning">Edit</a>
-  				<a href="<?=$this->Html->url('/products/delete/'.$product['Product']['id'])?>" class="btn btn-xs btn-danger">Delete</a> 
+  				<a href="<?=$this->Html->url('/products/delete/'.$product['Product']['id'])?>" class="btn btn-xs btn-danger" onclick="return confirm('Are you sure?')">Delete</a> 
   			</td>
 		</tr>
     <? } ?>
