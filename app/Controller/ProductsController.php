@@ -61,5 +61,57 @@ class ProductsController extends AppController {
 		$products = $this->Paginator->paginate('Product');
 		$this->set(compact('products'));
 	}
-
-}
+	
+	/*
+	 * edit()
+	 * modify product title, catalog #'s, description, volume & price
+	 */
+	public function edit($id = null) {
+		$this->layout = "dashboard-empty";
+	
+		if( ! $id ) {
+			$this->Session->setFlash('Bad ID', 'Flash/Validation/alert', array(
+				'type' => 'danger'
+			));
+			$this->redirect('/fancybox/redirect/');
+		}
+	
+		if($this->request->isPost()) {
+			$this->Product->id = $id;
+			if($this->Product->save($this->request->data)) {
+				$this->Session->setFlash('Saved Successfully', 'Flash/Validation/alert', array(
+						'type' => 'success'
+				));
+				$product = $this->Product->findById($id);
+				$this->redirect('/fancybox/close');
+			}
+		} else {
+			$detail = $this->Product->findById($id);
+			$this->set(compact('detail'));
+		}
+	}
+	
+	
+	/*
+	 * orders()
+	 * list of all orders for spesific product
+	 */
+	public function orders($id) {
+		$this->layout = "dashboard-empty";
+		
+		if($this->Product->exists($id)) {
+			$product = $this->Product->find('first', array(
+				'contain' => array(
+					'Detail'=> array(
+						'Order' => array(
+							'Detail' => array(
+								'Product'
+							)
+						)
+					)
+				)
+			));
+			$this->set(compact('product'));
+		}
+	}
+}	
