@@ -23,6 +23,35 @@ class Product extends AppModel {
 	);
 	
 	
+	public $validate = array(
+		'description' => array(
+			'rule' => 'notEmpty',
+			'required' => true,
+			'message' => 'the Description field cannot be empty'
+				
+		),
+		'bbp_cat' => array(
+			'rule' => 'notEmpty',
+			'required' => true,
+			'message' => 'the BBP Catalog # field cannot be empty'
+		),
+		'aa_cat' => array(
+			'rule' => 'notEmpty',
+			'required' => true,
+			'message' => 'the Alfa Catalog # field cannot be empty'
+		),
+		'vol' => array(
+			'rule' => 'notEmpty',
+			'required' => true,
+			'message' => 'the Volume field cannot be empty'
+		),
+		'price' => array(
+			'rule' => 'notEmpty',
+			'required' => true,
+			'message' => 'the Price field cannot be empty'
+		),
+	);
+	
 	/*
 	 *  Autocomplete find method
 	 *  Returns product data formatted for jQuery UI Autocomplete 

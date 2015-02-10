@@ -114,4 +114,32 @@ class ProductsController extends AppController {
 			$this->set(compact('product'));
 		}
 	}
+	
+	
+	/*
+	 * add()
+	 * add products for entry into orders
+	 */
+	public function add() {
+		Configure::write('debug', 0);		
+		$this->layout = "dashboard-empty";
+		
+		//Handle Posts
+		if( $this->request->is('post') ) {
+			//add new order number
+			if( $this->Product->save($this->request->data) ) {
+				$this->Session->setFlash('Suceessfully Added', 'Flash/Validation/alert', array(
+						'type' => 'success'
+				));		
+				$this->redirect('/fancybox/redirect/products');
+			} else {
+				//display validation errors
+				$this->Session->setFlash(null, 'Flash/Validation/alert', array(
+						'validation' => true,
+						'type' => 'danger'
+				));
+			}
+		}
+		
+	}
 }	
