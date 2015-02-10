@@ -19,7 +19,8 @@
   			<td> <?=$product['Product']['vol']?> </td>
   			<td> $<?=money_format('%i', $product['Product']['price'])?> </td>
   			<td> 
-  				<a href="<?=$this->Html->url('/products/edit/'.$product['Product']['id'])?>" class="btn btn-xs btn-warning">Edit</a>
+  			  	<a href="<?=$this->Html->url('/products/orders/'.$product['Product']['id'])?>" class="fancybox btn btn-xs btn-info" data-fancybox-type="iframe">Orders</a>
+  				<a href="<?=$this->Html->url('/products/edit/'.$product['Product']['id'])?>" class="fancybox btn btn-xs btn-warning" data-fancybox-type="iframe">Edit</a>
   				<a href="<?=$this->Html->url('/products/delete/'.$product['Product']['id'])?>" class="btn btn-xs btn-danger" onclick="return confirm('Are you sure?')">Delete</a> 
   			</td>
 		</tr>
