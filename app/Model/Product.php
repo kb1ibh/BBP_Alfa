@@ -18,10 +18,8 @@ class Product extends AppModel {
 	public $name = 'Product';
 	public $displayField = 'description';
 	
-	public $hasmany = array(
-		'Detail' => array(
-			'className' => 'Detail'
-		)
+	public $hasMany = array(
+		'Detail'
 	);
 	
 	

@@ -17,16 +17,13 @@ class Detail extends AppModel {
 
     public $name = 'Detail';
 	
-	public $hasOne = array(
-		'Order' => array(
-			'className' => 'Order'
-		)
-	);
-
 	public $belongsTo = array(
-		'Product' => array(
-			'className' => 'Product'
+		'Order' => array(
+				'className' => 'Order'
 		),
+		'Product' => array(
+				'className' => 'Product'
+		)
 	);
 	
 	public $validate = array(
