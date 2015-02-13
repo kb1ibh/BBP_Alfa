@@ -7,7 +7,7 @@
                     	<input type="text" class="form-control" id="productsSearch" placeholder="Search"/>
                     </div>
                     <div class="col-md-4">
-                    	<button type="button" class="btn btn-success btn-default btn-block">New Product</button>
+                    	<a data-fancybox-type="iframe" href="<?=$this->Html->url('/products/add')?>" type="button" class="fancybox btn btn-success btn-default btn-block">New Product</a>
                     </div>
 				</div>
 			</div>
