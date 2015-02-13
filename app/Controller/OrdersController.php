@@ -131,4 +131,26 @@ class OrdersController extends AppController {
 		$this->set(compact('order'));
 	}
 	
+	/*
+	 * ajax_search()
+	 * returns html table containing search results
+	 * used in orders/index
+	 */
+	public function ajax_search() {
+		$this->layout = 'ajax';
+		$orders = $this->Order->find('all', array(
+				'conditions' => array(
+						'po_number LIKE' => '%' . $this->request->data('q') . '%',
+				),
+				'contain'=> array(
+					'Detail' => array(
+						'Product'
+					)
+						
+				),
+				'limit' => 30
+		));
+		$this->set(compact('orders'));
+	}
+	
 }
