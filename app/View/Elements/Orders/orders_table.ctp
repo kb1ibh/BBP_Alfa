@@ -39,13 +39,13 @@
 			</td>
 			<td>
 				<div class="btn-group btn-group-xs">
-					<a href="<?=$this->Html->url('/order/invoice/'.$order['Order']['id'])?>" class="btn btn-primary">DOCX</a>
+					<a href="<?=$this->Html->url('/orders/invoice/'.$order['Order']['id'])?>" class="btn btn-primary">DOCX</a>
 					<button type="button" class="btn btn-warning">PDF</button>
 				</div>
 			</td>
 			<td>
 				<div class="btn-group btn-group-xs">
-					<a href="<?=$this->Html->url('/order/packing/'.$order['Order']['id'])?>" class="btn btn-primary">DOCX</a>
+					<a href="<?=$this->Html->url('/orders/packing/'.$order['Order']['id'])?>" class="btn btn-primary">DOCX</a>
 					<button type="button" class="btn btn-warning">PDF</button>
 				</div>
 			</td>
